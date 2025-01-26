@@ -43,3 +43,30 @@
 ### When to prevent faults?
 - This is the case of security matters
 - If an attacker has compromised a system and gained access to a sensitive data.
+### Faults types:
+- Hardware faults
+  - Hard drives crash, RAM becomes faulty, the power supply unit fails, the motherboard burns out, and so on.
+  - Hardware faults are usually handled by replacing the hardware component (Redundancy).
+- Software errors
+  - Bugs in the code (e.g., unhandled exceptional conditions such as division by zero, null pointer dereference, or invalid format string).
+  - Software errors can be handled by testing the software thoroughly, including writing automated tests that simulate various kinds of faults.
+  - Examples: 
+    - Using a language that checks for null pointer dereference at compile time.
+    - Using a type system that ensures that a variable is always initialized before it is used.
+    - Using a linter that statically analyzes the code to find suspicious patterns.
+- Human errors:
+  - Humans are known to be unreliable, 10-25% of incidents are caused by human error.
+  - Solutions:
+    - Design systems in a way that minimizes opportunities for error.
+    - Decouple the places where people make the most mistakes from the places where they can cause failures (production and sandbox).
+    - Test thoroughly at all levels, from unit tests to whole-system integration tests and manual tests.
+    - Easy rollbacks.
+    - Set up detailed and clear monitoring.
+    - Implement good management practices and training.
+### How important is reliability?
+- It's not just for nuclear power stations and air traffic control systems.
+- It's important for any system that stores or manipulates our data.
+- Even if the system is not life-critical, reliability is still important, for example, if the system is difficult to repair or has a high cost of failure.
+- There are situations in which we may choose to sacrifice reliability for other things, such as development speed or new features.
+## Scalability
+### Scalability definition:
