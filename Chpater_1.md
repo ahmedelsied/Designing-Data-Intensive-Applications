@@ -70,3 +70,60 @@
 - There are situations in which we may choose to sacrifice reliability for other things, such as development speed or new features.
 ## Scalability
 ### Scalability definition:
+`the term scalability refers to a system’s ability to cope with increased load.`
+### Describing Load:
+- Load can be described with a few numbers we call load parameters it may be:
+  - Requests per second to a web server.
+  - Ratio of reads to writes in a database.
+  - Number of simultaneously active users.
+  - Hit rate on a cache.
+  - Proportion of a dataset that fits in memory.
+### Example of Scalability:
+- Twitter two main scalability challenges:
+  - The number of tweets per second.
+  - The number of followers per user.
+  - The issue is:
+    - posting the tweet simply inserts it into a global collection of tweets
+    - and reading a user’s timeline involves fetching the tweets from the global collection.
+    - the query:
+      - `SELECT tweets.*, users.* FROM tweets
+         JOIN users ON tweets.sender_id = users.id
+         JOIN follows ON follows.followee_id = tweets.sender_id
+         WHERE follows.follower_id = current_user`
+  - Solution:
+    - Caching: the application caches the user’s home timeline every time they tweet it looks up the followers and inserts the tweet into their home timeline cache.
+    - As the number of followers grows, the cache becomes larger and the cache update takes longer.
+    - Diagram:
+        <p align="center">
+            <img src="assets/fig1.2.png"  width="600" height="350">
+        </p>
+### Describing Performance:
+- Once you have described the load on your system, you can think about how the system should behave as the load increases.
+- You can look at it in two ways:
+  - When increasing a load and keeping the system resources fixed, how is the performance affected?
+  - When increasing the load, how much do you need to increase the resources to achieve that performance?
+### Latency vs response time:
+- Latency is the duration that a request is waiting to be handled.
+- Response time is the time between a client sending a request and receiving a response.
+### Percentiles:
+- The median is the 50th percentile, the 95th percentile is the value below which 95% of the data falls.
+- Percentiles are used to measure the tail latencies.
+- The 99th percentile is a common choice for reporting performance numbers.
+- The method to calculate any percentile:
+  - Sort the response times and take the target (Usually its 95th percentile) percentile.
+  - Example:
+    - 95th percentile of [2, 3, 3, 4, 4, 4, 4, 5, 5, 6] using the interpolation so the result is 5.5 .
+    - here is the calculation:
+      - 95th percentile location: P x N = 0.95 x 10 = 9.5
+      - The 95th percentile is between the 9th and 10th elements.
+      - The 95th percentile is: V(before) + (V(after) - V(before)) x F = 5 + (6 - 5) x 0.5 = 5.5
+      - V(before) = 5, V(after) = 6, F is the fraction of the location of the percentile = 0.5
+### Approaches to coping with load:
+- Scaling up (Vertical scaling):
+  - Moving to a more powerful machine.
+  - The main limitation is the cost of a single machine.
+  - The main advantage is that it is usually easier to scale up.
+- Scaling out (Horizontal scaling):
+    - Distributing the load across multiple smaller machines.
+    - The main advantage is that it is usually cheaper to scale out.
+    - The main limitation is that it is usually harder to implement.
