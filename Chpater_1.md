@@ -83,6 +83,7 @@
   - The number of tweets per second.
   - The number of followers per user.
   - The issue is:
+    - fan-out on write: when a user posts a tweet, the tweet needs to be delivered to all of the user’s followers.
     - posting the tweet simply inserts it into a global collection of tweets
     - and reading a user’s timeline involves fetching the tweets from the global collection.
     - the query:
@@ -97,6 +98,10 @@
         <p align="center">
             <img src="assets/fig1.2.png"  width="600" height="350">
         </p>
+    - Hybrid solution:
+      - The application uses a combination of the two approaches.
+      - It uses a cache to store the home timeline of users with a moderate number of followers.
+      - For users with a very large number of followers, it uses a database query to fetch the home timeline.
 ### Describing Performance:
 - Once you have described the load on your system, you can think about how the system should behave as the load increases.
 - You can look at it in two ways:
