@@ -132,3 +132,24 @@
     - Distributing the load across multiple smaller machines.
     - The main advantage is that it is usually cheaper to scale out.
     - The main limitation is that it is usually harder to implement.
+## Maintainability
+### Maintainability definition:
+`The ease with which a system can be maintained and modified in the future.`
+### Maintainability is important because:
+- The only constant in software is change.
+- The software is not just written once and then left unchanged.
+- The requirements change, bugs need to be fixed, and new features need to be added.
+- The cost of maintaining a software system over its lifetime will be at least an order of magnitude greater than the initial development cost.
+### Operability: Making it easy for operations teams to keep the system running smoothly.
+- Monoitoring the health of the system.
+- Tracking down the cause of problems like system failures or degraded performance.
+- Keeping software and platforms up to date.
+- Keeping tabs on how systems affect each other.
+- Anticipating future problems and solving them before they occur.
+- Establishing good practices and tools for deployment, configuration management, and more.
+- Performing complex maintenance tasks, such as moving an application from one platform to another.
+- Maintaining security.
+- Defining processes that make operations predictable and help keep the production environment stable.
+- Preserving the knowledge of the system.
+### Simplicity: Make it easy for new engineers to understand the system.
+### Evolvability: Make it easy for engineers to make changes to the system in the future.
