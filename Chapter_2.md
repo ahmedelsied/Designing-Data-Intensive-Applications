@@ -1,0 +1,67 @@
+# Data model
+## why its important?
+- Because all software is about data, how to handle it, how to store it, how to retrieve it, how to display it, how to transform it.
+## what is data model ?
+- A data model is a conceptual representation of data structures (tables) that are required by a database. It is a way to define and organize the data in a database.
+## Data layers
+- Layer 0: actual data
+  - People
+  - Orders
+  - Actions
+  - Companies
+- Layer 1: data model
+  - Data structures
+  - Objects
+- Layer 2: data model stores
+  - JSON
+  - XML
+  - TABLES
+  - GRAPHS
+- Layer 3: data stores modeling
+  - Bytes in ram
+  - Files on disk
+- Layer 4: hardware data actual
+  - E-current
+  - Magnetic fields
+  - Light pulses
+## Data models
+- Relational data model
+  - purpose
+    - Relationships between tables
+    - Transactional/Batch processing
+    - Business data processing
+- Document data model
+  - purpose
+    - need to greater scalability than relational model
+    - widespread preference fpr free and open source software over commercial software
+    - Specialized queries operations that are not well supported by relational databases
+    - Frustration with the limitations of relational databases
+  - issue
+    - No standard query language
+    - Many to many relationships are not well supported
+    - Many to one relationships are not well supported
+- Hierarchical data model
+  - purpose
+    - To represent data in a tree-like structure
+    - To represent one-to-many relationships
+    - To represent data in a way that is easy to understand
+  - issue
+    - Not suitable for complex data
+    - Not suitable for many-to-many relationships
+    - Not suitable for data that changes frequently
+- Network data model
+  - purpose
+    - generalization of the hierarchical model
+    - To represent complex data
+    - To represent many-to-many relationships
+  - issue
+    - Not suitable for simple data
+    - n-dimensional data space
+    - application code complexity
+- Relational data model
+  - purpose
+    - Relationships between tables
+    - Transactional/Batch processing
+    - Business data processing
+  - issue
+    - Schema changes are difficult
