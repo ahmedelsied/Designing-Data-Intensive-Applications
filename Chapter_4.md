@@ -27,3 +27,8 @@
   - that they are tightly coupled to the programming language
   - may not be compatible with other languages.
   - can be difficult to evolve schemas over time. 
+### **5. Modes Of Dataflow**
+- **Dataflow** refers to the movement of data between systems or components.
+- **Async MSG-passing** is a form of dataflow where messages are sent between components asynchronously Like (Kafka, RabbitMQ, and Amazon SQS).
+- **Databases** Like Espresso is a form of dataflow where data is pushed to clients in real-time.
+- **Service calls** are another form of dataflow where services communicate with each other over a network Like (Rest, SOAP and RPC).
