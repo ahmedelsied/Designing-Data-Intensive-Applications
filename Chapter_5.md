@@ -18,11 +18,11 @@
 ### **4. Handling Node Outages**
 - **Follower Failure: catch-up recovery** involves re-syncing a failed Follower node with the Leader's state by copying missing data from logs of data changes.
 - **Leader Failure: failover** involves promoting a Follower node to become the new Leader and reconfiguring the system to redirect writes to the new Leader.
-#### ** Failover problems**
+#### **5. Failover problems**
 - **Data Loss** occurs when the new Leader has not replicated all writes from the old Leader.
 - **Split Brain** occurs when multiple nodes believe they are the Leader, leading to conflicts and data inconsistency.
 - **Preventing Split Brain** involves using fencing mechanisms to ensure only one node becomes the Leader.
-### **5. Implementing of Replication Logs**
+### **6. Implementing of Replication Logs**
 - **Statement-based replication** involves replicating SQL statements from the Leader to Followers.
   - **Problems**: non-deterministic statements, schema changes, and performance issues.
   - **Solutions**: logical (row-based) replication, and trigger-based replication.
@@ -36,8 +36,11 @@
 - **Trigger-based replication** involves using triggers to capture data changes and replicate them to other nodes.
   - **Problems**: more prone to bugs, and limitations than the database's built-in replication.
   - **Used in**: Oracle GoldenGate.
-### **6. Problems with Replication Lag**
+### **7. Problems with Replication Lag**
 - **Replication Lag** refers to the delay between writes on the Leader and their replication to Followers.
 - **Causes**: network latency, disk I/O, and processing delays.
 - **Solutions**:
   - **Read Your Writes**: ensure that reads are consistent with writes.
+  - **Monotonic Reads**: ensure that reads are consistent with the order of writes.
+  - **Consistent Prefix Reads**: ensure that reads are consistent with a prefix of writes.
+  - **Read-after-Write Consistency**: ensure that reads are consistent with writes after a write operation.
